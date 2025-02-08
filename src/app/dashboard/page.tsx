@@ -1,9 +1,12 @@
 import React from 'react';
-import Sidebar from '@/components/sidebar';
+import Sidebar from '@/components/Sidebar/sidebar';
+import MainContent from '@/components/MainContent/main-content';
+
 const Dashboard: React.FC = () => {
   return (
-    <main className='grid grid-rows-7 items-center justify-items-center min-h-screen p-8 pb-20 gap-2 sm:p-20'>
+    <main className="p-[20px] pl-[10rem] pr-[10rem] grid grid-cols-7 gap-7">
       <Sidebar />
+      <MainContent />
     </main>
   );
 };
