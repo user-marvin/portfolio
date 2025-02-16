@@ -1,3 +1,173 @@
-.main-container {
-    @apply border border-white rounded-2xl p-[20px];
+/*-----------------------------------*\
+
+sm for small screens (640px and up)
+md for medium screens (768px and up)
+lg for large screens (1024px and up)
+xl for extra-large screens (1280px and up)
+2xl for extra-extra-large screens (1536px and up)
+
+\*-----------------------------------*/
+
+.page-container {
+  @apply p-3 m-[30px] min-h-screen;
+  @apply flex flex-col lg:flex-row gap-4;
+
+  color: var(--white-2);
+}
+
+.common-main {
+  @apply border border-[var(--jet)] rounded-2xl px-6 py-4 bg-[var(--eerie-black-2)];
+}
+
+.sidebar {
+  @apply h-[112px] relative overflow-hidden;
+  @apply lg:w-[220px] lg:h-full;
+  transition: var(--transition-2);
+  .sidebar-initial-content {
+    @apply flex gap-4;
+
+    .avatar {
+      @apply max-h-[80px] max-w-[80px];
+    }
+
+    .name-content {
+      @apply mt-2;
+
+      .name {
+        font-size: var(--fs-3);
+        font-weight: var(--fw-600);
+        @apply mb-[10px];
+      }
+
+      .role {
+        @apply py-[3px] px-[12px] rounded-[8px] bg-[var(--onyx)];
+        font-size: var(--fs-7);
+      }
+    }
+  }
+  .more-info-button {
+    @apply w-9 text-center justify-center rounded-tr-[14px] rounded-bl-2xl absolute top-0 right-0;
+    color: var(--orange-yellow-crayola);
+    box-shadow: var(--shadow-2);
+    background: var(--border-gradient-onyx);
+    transition: var(--transition-1);
+  }
+
+  .more-info-button svg {
+    margin-top: 4px;
+  }
+
+  .sidebar-more-info {
+    .separator {
+      @apply bg-[var(--jet)] h-[0.1px] w-[100%] mt-5 mb-5;
+    }
+    .contact-info {
+      .contact {
+        @apply flex gap-3 my-3;
+
+        .icon-overflow {
+          @apply flex items-center;
+          .icon {
+            position: relative;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            color: var(--orange-yellow-crayola);
+            box-shadow: var(--shadow-1);
+            z-index: 1;
+            background: var(--border-gradient-onyx);
+            border-radius: 8px;
+          }
+        }
+
+        .details h1:nth-child(1) {
+          font-size: var(--fs-8);
+          color: var(--light-gray-70);
+        }
+
+        .details h1:nth-child(2) {
+          font-size: var(--fs-5);
+          color: var(--white-2);
+        }
+      }
+    }
+    .socials-container {
+      @apply flex justify-center;
+    }
+  }
+}
+
+.sidebar-active {
+  @apply h-[360px];
+  transition: var(--transition-2);
+}
+
+.main-content {
+  @apply lg:mt-0 lg:w-[520px] lg:h-[100%];
+  color: var(--white-2);
+
+  .skills {
+    @apply my-[35px];
+
+    h1 {
+      font-size: var(--fs-1);
+      font-weight: bold;
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+  .about-me {
+    @apply mt-[10px];
+  }
+
+  .can-do {
+    .skills-container {
+      @apply m-5 flex gap-4 rounded-2xl p-[30px] border border-[var(--onyx)];
+      box-shadow: var(--shadow-2);
+      .icon {
+        @apply m-auto mr-2;
+        color: var(--orange-yellow-crayola);
+      }
+      .description {
+        h4 {
+          font-size: var(--fs-2);
+          font-weight: bold;
+          @apply mb-2;
+        }
+      }
+    }
+  }
+
+  .softskills {
+    @apply border border-white;
+    .softskills-container {
+      @apply border border-white;
+      @apply gap-[30px] h-[150px] flex overflow-x-auto;
+      scroll-behavior: smooth;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 10px 20px;
+      overscroll-behavior-inline: contain;
+      scroll-snap-type: inline mandatory;
+      scroll-snap-align: center;
+      .skills-card {
+        @apply border border-white w-[650px] m-4;
+      }
+    }
+  }
+}
+
+.navbar {
+  @apply fixed bottom-0 left-0 w-[100%] border border-[var(--jet)] h-[55px] rounded-tl-2xl rounded-tr-2xl z-[5];
+  backdrop-filter: blur(10px);
+  background: var(--navbar-dark);
+  ul {
+    @apply flex gap-7 justify-center m-4;
+  }
 }

@@ -2,12 +2,12 @@ import React from "react";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "../assets/css/globals.css";
-import "../assets/css/tailwind/custom.css"
+import "../assets/css/tailwind/custom.css";
 
 const geistMono = Poppins({
   variable: "--ff-poppins",
   subsets: ["latin"],
-  weight: "400"
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -21,12 +21,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+    <html lang="en" className="hydrated">
+      <body className={`${geistMono.variable} antialiased`}>{children}</body>
     </html>
   );
 }
