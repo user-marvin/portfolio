@@ -9,9 +9,8 @@ xl for extra-large screens (1280px and up)
 \*-----------------------------------*/
 
 .page-container {
-  @apply p-3 m-[30px] min-h-screen;
-  @apply flex flex-col lg:flex-row gap-4;
-
+  @apply m-5 md:m-10 lg:m-[50px];
+  @apply flex flex-col xl:flex-row gap-4 justify-center;
   color: var(--white-2);
 }
 
@@ -21,32 +20,33 @@ xl for extra-large screens (1280px and up)
 
 .sidebar {
   @apply h-[112px] relative overflow-hidden;
-  @apply lg:w-[220px] lg:h-full;
+  @apply xl:min-w-[320px] xl:h-full;
   transition: var(--transition-2);
   .sidebar-initial-content {
-    @apply flex gap-4;
-
+    @apply flex flex-row gap-4;
+    @apply xl:flex-col xl:items-center xl:mt-5;
     .avatar {
-      @apply max-h-[80px] max-w-[80px];
+      @apply max-h-[80px] max-w-[80px] rounded-lg;
+      @apply xl:max-h-[120px] xl:max-w-[120px] xl:rounded-2xl;
     }
 
     .name-content {
-      @apply mt-2;
+      @apply mt-2 xl:flex xl:flex-col xl:items-center;
 
       .name {
-        font-size: var(--fs-3);
-        font-weight: var(--fw-600);
-        @apply mb-[10px];
+        @apply mb-[10px] text-base font-semibold;
+        @apply lg:text-xl xl:text-[22px];
       }
 
       .role {
-        @apply py-[3px] px-[12px] rounded-[8px] bg-[var(--onyx)];
-        font-size: var(--fs-7);
+        @apply py-[3px] px-[12px] rounded-[8px] bg-[var(--onyx)] text-xs w-fit;
+        @apply lg:text-sm;
       }
     }
   }
   .more-info-button {
-    @apply w-9 text-center justify-center rounded-tr-[14px] rounded-bl-2xl absolute top-0 right-0;
+    @apply w-8 text-center justify-center rounded-tr-[14px] rounded-bl-2xl absolute top-0 right-0;
+    @apply xl:hidden;
     color: var(--orange-yellow-crayola);
     box-shadow: var(--shadow-2);
     background: var(--border-gradient-onyx);
@@ -58,6 +58,7 @@ xl for extra-large screens (1280px and up)
   }
 
   .sidebar-more-info {
+    @apply overflow-hidden;
     .separator {
       @apply bg-[var(--jet)] h-[0.1px] w-[100%] mt-5 mb-5;
     }
@@ -84,12 +85,12 @@ xl for extra-large screens (1280px and up)
         }
 
         .details h1:nth-child(1) {
-          font-size: var(--fs-8);
+          @apply text-xs lg:text-sm;
           color: var(--light-gray-70);
         }
 
         .details h1:nth-child(2) {
-          font-size: var(--fs-5);
+          @apply text-xs lg:text-sm;
           color: var(--white-2);
         }
       }
@@ -101,73 +102,77 @@ xl for extra-large screens (1280px and up)
 }
 
 .sidebar-active {
-  @apply h-[360px];
+  @apply h-[340px];
   transition: var(--transition-2);
 }
 
 .main-content {
-  @apply lg:mt-0 lg:w-[520px] lg:h-[100%];
+  @apply flex flex-col gap-3 lg:mt-0 relative;
+  @apply xl:w-[1020px] xl:h-[100%] xl:pt-[55px];
   color: var(--white-2);
 
   .skills {
-    @apply my-[35px];
-
+    /* @apply border border-white; */
     h1 {
-      font-size: var(--fs-1);
-      font-weight: bold;
+      @apply text-lg font-bold;
+      @apply lg:text-xl;
     }
 
     h2 {
-      font-size: 20px;
-      font-weight: bold;
+      @apply text-[20px] font-bold;
+    }
+
+    p {
+      @apply text-sm;
+      @apply lg:text-base;
     }
   }
+
   .about-me {
-    @apply mt-[10px];
+    @apply mt-3;
   }
 
   .can-do {
+    @apply flex flex-col;
     .skills-container {
-      @apply m-5 flex gap-4 rounded-2xl p-[30px] border border-[var(--onyx)];
+      @apply m-3 flex flex-col gap-4 rounded-2xl p-3 border border-[var(--onyx)];
       box-shadow: var(--shadow-2);
       .icon {
-        @apply m-auto mr-2;
+        @apply flex justify-center;
         color: var(--orange-yellow-crayola);
       }
       .description {
         h4 {
-          font-size: var(--fs-2);
-          font-weight: bold;
-          @apply mb-2;
+          @apply mb-2 text-[16px] font-semibold text-center;
+        }
+        p {
+          @apply text-center;
         }
       }
     }
   }
 
-  .softskills {
-    @apply border border-white;
-    .softskills-container {
-      @apply border border-white;
-      @apply gap-[30px] h-[150px] flex overflow-x-auto;
-      scroll-behavior: smooth;
-      align-items: flex-start;
-      justify-content: flex-start;
-      padding: 10px 20px;
-      overscroll-behavior-inline: contain;
-      scroll-snap-type: inline mandatory;
-      scroll-snap-align: center;
-      .skills-card {
-        @apply border border-white w-[650px] m-4;
+  .tech-stack {
+    h2 {
+      @apply text-[16px] text-center;
+    }
+    .tech-list {
+      @apply flex flex-row gap-4 py-2 px-4 justify-center;
+      .tech-card {
       }
     }
   }
 }
 
 .navbar {
-  @apply fixed bottom-0 left-0 w-[100%] border border-[var(--jet)] h-[55px] rounded-tl-2xl rounded-tr-2xl z-[5];
+  @apply fixed bottom-0 left-0 w-[100%] border border-[var(--jet)] h-[55px] rounded-tr-2xl rounded-tl-2xl z-[5];
+  @apply xl:absolute xl:top-0 xl:left-auto xl:right-0 xl:w-fit xl:rounded-bl-2xl xl:rounded-tr-xl xl:rounded-tl-[0px] xl:border-t-0;
   backdrop-filter: blur(10px);
   background: var(--navbar-dark);
   ul {
     @apply flex gap-7 justify-center m-4;
+    li {
+      @apply xl:px-5 xl:gap-10;
+    }
   }
 }
