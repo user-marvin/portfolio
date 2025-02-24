@@ -1,11 +1,38 @@
-const Navigator: React.FC = () => {
+type NavigatorProps = {
+  setSection: (section: string) => void;
+  section: string;
+};
+
+const Navigator: React.FC<NavigatorProps> = ({ setSection, section }) => {
   return (
     <div className="navbar">
-      <ul>
-        <li>About</li>
-        <li>Resume</li>
-        <li>Portfolio</li>
-        <li>Contact</li>
+      <ul className="navbar-list">
+        <li
+          onClick={() => setSection("aboutMe")}
+          className={`${section === "aboutMe" ? "section-active" : undefined}`}
+        >
+          About
+        </li>
+        <li
+          onClick={() => setSection("resume")}
+          className={`${section === "resume" ? "section-active" : undefined}`}
+        >
+          Resume
+        </li>
+        <li
+          onClick={() => setSection("portfolio")}
+          className={`${
+            section === "portfolio" ? "section-active" : undefined
+          }`}
+        >
+          Portfolio
+        </li>
+        <li
+          onClick={() => setSection("contact")}
+          className={`${section === "contact" ? "section-active" : undefined}`}
+        >
+          Contact
+        </li>
       </ul>
     </div>
   );

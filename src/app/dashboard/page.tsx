@@ -1,12 +1,12 @@
 import React from "react";
 import Sidebar from "@/components/Sidebar/sidebar";
-import About from "@/components/MainContent/about";
+import MainContent from "@/components/MainContent/main-content";
 
 const Dashboard: React.FC = () => {
   return (
     <main className="page-container">
       <Sidebar />
-      <About />
+      <MainContent />
     </main>
   );
 };
