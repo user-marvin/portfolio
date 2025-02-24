@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import yin from "@/assets/img/0B2A7CA6-0528-4C43-90BB-CA1674434975.jpeg";
-import MoreInfoBtn from "../more-info-button";
+import MoreInfoBtn from "./more-info-button";
+import MoreInfoText from "./more-info-text-button";
 import { useState } from "react";
 import Socials from "./socials";
 const Sidebar: React.FC = () => {
@@ -23,6 +24,7 @@ const Sidebar: React.FC = () => {
         </div>
       </div>
       <MoreInfoBtn handleToggle={toggleSidebar} />
+      <MoreInfoText handleToggle={toggleSidebar} />
       <div className="sidebar-more-info">
         <div className="separator" />
         <div className="contact-info">

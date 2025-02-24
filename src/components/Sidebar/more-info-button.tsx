@@ -3,7 +3,7 @@ interface Props {
 }
 const MoreInfoBtn: React.FC<Props> = ({ handleToggle }) => {
   return (
-    <div className="more-info-button">
+    <div className="more-info-button more-info-icon">
       <button onClick={handleToggle}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
