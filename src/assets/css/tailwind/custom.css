@@ -23,7 +23,7 @@ xl for extra-large screens (1280px and up)
 
 .sidebar {
   @apply h-[112px] relative overflow-hidden;
-  @apply xl:w-[280px] xl:h-full;
+  @apply xl:w-[280px] xl:h-full xl:sticky xl:top-[50px];
   transition: var(--transition-2);
   .sidebar-initial-content {
     @apply flex flex-row gap-4;
@@ -35,7 +35,7 @@ xl for extra-large screens (1280px and up)
 
     .name-content {
       @apply mt-2 xl:flex xl:flex-col xl:items-center;
-
+      @apply xl:mt-3 xl:mb-3;
       .name {
         @apply mb-[10px] text-base font-semibold;
         @apply lg:text-xl xl:text-[22px];
@@ -43,7 +43,7 @@ xl for extra-large screens (1280px and up)
 
       .role {
         @apply py-[3px] px-[12px] rounded-[8px] bg-[var(--onyx)] text-xs w-fit;
-        @apply lg:text-sm;
+        @apply lg:text-sm xl:mt-2;
       }
     }
   }
@@ -104,26 +104,30 @@ xl for extra-large screens (1280px and up)
         }
 
         .details h1:nth-child(2) {
-          @apply text-xs lg:text-sm;
-          @apply truncate;
+          @apply text-xs lg:text-sm truncate;
           color: var(--white-2);
         }
       }
     }
     .socials-container {
       @apply flex flex-row gap-3 justify-center;
+      @apply xl:mt-5;
     }
   }
 }
 
+.send-email {
+  @apply border border-white;
+}
+
 .sidebar-active {
-  @apply h-[410px] xl:h-full;
+  @apply h-[480px] xl:h-full;
   transition: var(--transition-2);
 }
 
 .main-content {
   @apply flex flex-col gap-3 lg:mt-0 relative;
-  @apply xl:w-[900px] xl:h-[100%] xl:pt-[55px];
+  @apply xl:w-[900px] xl:h-[100%] xl:pt-[30px];
   color: var(--white-2);
 
   .skills {
@@ -144,6 +148,13 @@ xl for extra-large screens (1280px and up)
 
   .about-me {
     @apply mt-3;
+    h1 {
+      @apply xl:mb-5;
+    }
+    h1::after {
+      @apply block w-[50px] h-[2px] bg-[var(--orange-yellow-crayola)] mt-2;
+      content: "";
+    }
   }
 
   .can-do {
