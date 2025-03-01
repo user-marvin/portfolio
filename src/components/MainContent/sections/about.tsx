@@ -1,9 +1,15 @@
 import { FileCode2, FileJson2, SquareCode } from "lucide-react";
 import Image from "next/image";
-
-const About: React.FC = () => {
+type Props = {
+  class: string;
+};
+const About: React.FC<Props> = ({ class: section }) => {
   return (
-    <>
+    <div
+      className={`section-container ${
+        section === "aboutMe" ? "section-active" : ""
+      }`}
+    >
       <div className="skills about-me">
         <h1>About</h1>
         <p>
@@ -208,7 +214,7 @@ const About: React.FC = () => {
             </div>
             <div className="tech-container">
               <h2>Database</h2>
-              <ul className="tech-list">
+              <ul className="tech-list flex">
                 <li>
                   <div className="tech-card">
                     <Image
@@ -244,7 +250,7 @@ const About: React.FC = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

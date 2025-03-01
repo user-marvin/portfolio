@@ -11,8 +11,8 @@ const MainContent: React.FC = () => {
   return (
     <div className="main-content common-main">
       <Navigator setSection={setSection} section={section} />
-      {section === "aboutMe" && <About />}
-      {section === "resume" && <Resume />}
+      {section === "aboutMe" && <About class={section} />}
+      {section === "resume" && <Resume class={section} />}
       {section === "portfolio" && <Portfolio />}
       {section === "contact" && <Contact />}
     </div>
