@@ -114,14 +114,14 @@ xl for extra-large screens (1280px and up)
       @apply xl:mt-5;
     }
   }
-}
 
-.send-email {
-  @apply border border-white;
+  .send-email {
+    @apply hidden xl:block h-[30px] text-center;
+  }
 }
 
 .sidebar-active {
-  @apply h-[480px] xl:h-full;
+  @apply h-[450px] lg:h-[480px] xl:h-full;
   transition: var(--transition-2);
 }
 
@@ -129,75 +129,122 @@ xl for extra-large screens (1280px and up)
   @apply flex flex-col gap-3 lg:mt-0 relative;
   @apply xl:w-[900px] xl:h-[100%] xl:pt-[30px];
   color: var(--white-2);
+  .section-container {
+    @apply p-2;
+    .skills {
+      h1 {
+        @apply text-xl font-semibold;
+        @apply sm:text-3xl;
+      }
 
-  .skills {
-    h1 {
-      @apply text-lg font-semibold;
-      @apply lg:text-3xl;
+      h2 {
+        @apply text-[20px] font-bold;
+      }
+
+      p {
+        @apply text-sm;
+        @apply lg:text-base;
+      }
     }
 
-    h2 {
-      @apply text-[20px] font-bold;
+    .about-me {
+      h1 {
+        @apply mb-5;
+      }
+      h1::after {
+        @apply block w-[50px] h-[3px] bg-[var(--orange-yellow-crayola)] mt-2;
+        content: "";
+      }
     }
 
-    p {
-      @apply text-sm;
-      @apply lg:text-base;
+    .can-do {
+      @apply flex flex-col;
+      .skills-container {
+        @apply m-3 flex flex-col gap-4 rounded-2xl p-3 border border-[var(--onyx)];
+        box-shadow: var(--shadow-2);
+        .icon {
+          @apply flex justify-center;
+          color: var(--orange-yellow-crayola);
+        }
+        .description {
+          h4 {
+            @apply mb-2 text-[16px] font-semibold text-center;
+          }
+          p {
+            @apply text-center;
+          }
+        }
+      }
     }
-  }
 
-  .about-me {
-    @apply mt-3;
-    h1 {
-      @apply xl:mb-5;
+    .tech-stack {
+      .tech-wrapper {
+        @apply lg:flex lg:flex-col;
+        .tech-container {
+          @apply rounded-2xl border border-[var(--onyx)] mt-2 py-3;
+        }
+
+        .tech-wrapper-2 {
+          @apply lg:flex lg:flex-row lg:gap-3;
+
+          .tech-container {
+            @apply lg:w-[50%];
+          }
+        }
+      }
+      h2 {
+        @apply text-[16px] text-center;
+      }
+      .tech-list {
+        @apply flex flex-row gap-4 py-2 px-4 justify-center;
+      }
     }
-    h1::after {
-      @apply block w-[50px] h-[2px] bg-[var(--orange-yellow-crayola)] mt-2;
+
+    .experience {
+      @apply text-xl xl:text-3xl font-semibold mb-8;
+    }
+
+    .experience::after {
+      @apply block w-[50px] h-[3px] bg-[var(--orange-yellow-crayola)] mt-2;
       content: "";
     }
+
+    .experience-container {
+      @apply border-l border-[var(--jet)] pl-5 pb-5 ml-3;
+      .dot {
+        @apply w-4 h-4 rounded-full bg-[var(--orange-yellow-crayola)] float-left -mt-[10px] -ml-[28px];
+      }
+
+      .content {
+        @apply relative -top-4;
+        .job-title {
+          @apply font-semibold xl:text-lg;
+        }
+        .company {
+          @apply font-medium;
+        }
+        .year {
+          @apply font-extralight bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-500;
+        }
+        .context {
+          @apply text-sm;
+          @apply lg:text-base;
+        }
+      }
+    }
   }
-
-  .can-do {
-    @apply flex flex-col;
-    .skills-container {
-      @apply m-3 flex flex-col gap-4 rounded-2xl p-3 border border-[var(--onyx)];
-      box-shadow: var(--shadow-2);
-      .icon {
-        @apply flex justify-center;
-        color: var(--orange-yellow-crayola);
-      }
-      .description {
-        h4 {
-          @apply mb-2 text-[16px] font-semibold text-center;
-        }
-        p {
-          @apply text-center;
-        }
-      }
-    }
+  .section-active {
+    @apply block;
+    animation: fade 0.5s ease forwards;
   }
+}
 
-  .tech-stack {
-    .tech-wrapper {
-      @apply lg:flex lg:flex-col;
-      .tech-container {
-        @apply rounded-2xl border border-[var(--onyx)] mt-2 py-3;
-      }
-
-      .tech-wrapper-2 {
-        @apply lg:flex lg:flex-row lg:gap-3;
-
-        .tech-container {
-          @apply lg:w-[50%];
-        }
-      }
-    }
-    h2 {
-      @apply text-[16px] text-center;
-    }
-    .tech-list {
-      @apply flex flex-row gap-4 py-2 px-4 justify-center;
-    }
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 

@@ -17,7 +17,7 @@ const Navigator: React.FC<NavigatorProps> = ({ setSection, section }) => {
           onClick={() => setSection("resume")}
           className={`${section === "resume" ? "section-active" : undefined}`}
         >
-          Resume
+          Experience
         </li>
         <li
           onClick={() => setSection("portfolio")}
