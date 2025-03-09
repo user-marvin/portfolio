@@ -72,7 +72,7 @@ xl for extra-large screens (1280px and up)
 
   .sidebar-more-info {
     .separator {
-      @apply bg-[var(--jet)] h-[0.1px] w-[100%] mt-5 mb-5;
+      @apply bg-[var(--jet)] h-px w-[100%] mt-5 mb-5;
     }
     .contact-info {
       @apply flex flex-col;
