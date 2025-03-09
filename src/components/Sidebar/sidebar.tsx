@@ -80,7 +80,7 @@ const Sidebar: React.FC = () => {
         <div className="send-email">
           <Button variant="primary">Send Email</Button>
         </div>
-        <div className="mt-4 text-center">
+        <div className="download-resume">
           <Button variant="secondary">Download Resume</Button>
         </div>
         <div className="separator" />
