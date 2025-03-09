@@ -115,8 +115,9 @@ xl for extra-large screens (1280px and up)
     }
   }
 
-  .send-email {
-    @apply hidden xl:block h-[30px] text-center;
+  .send-email,
+  .download-resume {
+    @apply hidden mt-4 xl:block h-[30px] text-center;
   }
 }
 
