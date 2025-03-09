@@ -13,7 +13,7 @@ const About: React.FC<Props> = ({ class: section }) => {
       <div className="skills about-me">
         <h1>About</h1>
         <p>
-          I'm a self-motivated Full Stack Developer with experience in
+          I&apos;m a self-motivated Full Stack Developer with experience in
           developing dynamic web applications using React, Vue.js, TypeScript
           and Redux, integrating APIs from Nest.js, Java and Spring Boot. I have
           worked on building and migrating modern full-stack web applications
