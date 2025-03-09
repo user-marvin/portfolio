@@ -159,7 +159,7 @@ xl for extra-large screens (1280px and up)
     }
 
     .can-do {
-      @apply flex flex-col;
+      @apply flex flex-col mt-4;
       .skills-container {
         @apply m-3 flex flex-col gap-4 rounded-2xl p-3 border border-[var(--onyx)];
         box-shadow: var(--shadow-2);
@@ -179,6 +179,7 @@ xl for extra-large screens (1280px and up)
     }
 
     .tech-stack {
+      @apply mt-4;
       .tech-wrapper {
         @apply lg:flex lg:flex-col;
         .tech-container {
