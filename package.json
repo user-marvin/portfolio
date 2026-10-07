@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint .",
     "sanity:seed": "sanity exec scripts/seed-sanity.ts --with-user-token",
-    "sanity:login": "sanity login"
+    "sanity:login": "sanity login",
+    "resume:pdf": "\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-pdf-header-footer --print-to-pdf=public/Marvin-Villamar-Resume.pdf resume/resume.html"
   },
   "dependencies": {
     "@sanity/icons": "^5.2.3",

@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Marvin B. Villamar — Software Engineer</title>
+<!-- Source for public/Marvin-Villamar-Resume.pdf. Rebuild with: npm run resume:pdf -->
+<style>
+  @page { size: Letter; margin: 0.42in 0.55in; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: Helvetica, Arial, sans-serif; font-size: 9.3pt; line-height: 1.3; color: #111; }
+  h1 { margin: 0; font-size: 20pt; letter-spacing: -0.2pt; }
+  .contact { margin-top: 2pt; color: #666; font-size: 9.3pt; }
+  h2 { margin: 10pt 0 5pt; padding-bottom: 3pt; border-bottom: 1px solid #999; font-size: 11pt; text-transform: uppercase; }
+  .company { margin: 7pt 0 0; font-weight: bold; font-size: 10pt; }
+  .role { margin: 4pt 0 0; font-weight: bold; }
+  .role .dates { color: #666; }
+  .project { margin: 0; color: #666; font-style: italic; }
+  ul { margin: 2pt 0 0; padding-left: 14pt; }
+  li { margin: 0 0 1pt; padding-left: 2pt; }
+  p { margin: 0 0 3pt; }
+  .skills p { margin-bottom: 3pt; }
+  /* Keep headings with the text that follows; let long entries flow across pages. */
+  h2, .company, .role, .project { break-after: avoid; }
+  li, .skills p { break-inside: avoid; }
+</style>
+</head>
+<body>
+  <h1>Marvin B. Villamar</h1>
+  <div class="contact">Quezon City, Metro Manila, Philippines &nbsp;•&nbsp; villamar.marvin.b.8138@gmail.com &nbsp;•&nbsp; +63 (955) 143 8976</div>
+
+  <h2>Professional Summary</h2>
+  <p>Full stack software engineer with 4+ years of experience delivering production web, mobile, and reactive backend systems across cruise hospitality, insurance, telecom, and IoT industries. Currently building and maintaining both tiers of a crew-facing guest experience platform running on every ship in Royal Caribbean Group's 71-vessel fleet — a Next.js 16 / React 19 / TypeScript application backed by a Java 21 / Spring Boot 4 / Spring WebFlux reactive API that aggregates 10+ enterprise systems. Comfortable owning a feature end to end: API design and data modeling through UI, test coverage, and Docker/ArgoCD delivery to OpenShift and AWS. Known for modernizing legacy stacks — monolith to microservices, blocking to reactive, and outdated libraries to maintainable ones.</p>
+
+  <h2>Work Experience</h2>
+
+  <p class="company">Royal Caribbean Group / Vertere Global Solutions</p>
+  <p class="role">Software Engineer / Full Stack Developer <span class="dates">| September 2025 – Present</span></p>
+  <p class="project">Project: SmartFleet Guest Experience Platform — Fully Remote</p>
+  <ul>
+    <li>Build and maintain both tiers of SmartFleet, the crew-facing guest experience platform used daily on every ship in Royal Caribbean Group's 71-vessel fleet and by shore-side managers — a Next.js 16 / React 19 / TypeScript web application backed by a Java 21 / Spring Boot 4 / Spring WebFlux reactive API.</li>
+    <li>Delivered a brand-aware single codebase that serves two branded experiences (Royal Caribbean and Celebrity) from one shell, using Tailwind CSS, Material UI, TanStack Query, and Zustand, so one team ships a feature to both fleets at once.</li>
+    <li>Aggregated 10+ enterprise systems (Tibco PMS, Oracle, ForgeRock SSO, Couchbase, Hazelcast, Guest360, Asset Tracking) behind non-blocking WebClient pipelines with retry, timeout, and backoff, shielding crew from any single upstream failure.</li>
+    <li>Implemented schema-versioned Couchbase persistence with migration-safe merges and daily voyage rollover seeding, so crew-entered edits survive data model refactors and voyage transitions.</li>
+    <li>Secured the platform with ForgeRock OpenAM SSO and JWT sessions mapped to LDAP role claims, adding role-based UI gating, a custom feature flag layer, and admin role impersonation for QA and training.</li>
+    <li>Engineered for ship-edge resilience: offline-tolerant behavior across satellite dropouts, automatic chunk-load recovery, server-side proxies fronting an embedded micro-frontend, and a fully offline local development stack.</li>
+    <li>Safeguarded releases with Jest, React Testing Library, and Playwright on the frontend, JUnit, Reactor Test, and WireMock on the backend, plus SonarQube and JaCoCo coverage gates and Snyk CVE remediation.</li>
+    <li>Delivered through multi-stage Docker images and ArgoCD GitOps to OpenShift ship-edge and AWS clusters using one image with environment-scoped configuration.</li>
+  </ul>
+
+  <div>
+  <p class="company">Freelance</p>
+  <p class="role">Software Engineer / Full Stack Developer <span class="dates">| January 6, 2025 – July 7, 2025</span></p>
+  <p class="project">Project: Telecom &amp; IoT Monitoring Platform — Fully Remote</p>
+  <ul>
+    <li>Built features across both tiers of a telecom and IoT monitoring platform — a React 18 / TypeScript single-page application in an Nx monorepo, backed by a NestJS REST API and MySQL.</li>
+    <li>Developed a NestJS backend-for-frontend that unifies several monitoring APIs (IoT, metering, telecom, alarms, notifications) behind one authenticated API, using TypeORM, class-validator DTOs, Swagger, and scheduled jobs.</li>
+    <li>Secured the API with JWT, API-key, and role-based access guards, and worked on migrating login to Keycloak SSO with RS256 tokens verified against the realm's JWKS.</li>
+    <li>Built real-time monitoring dashboards with Highcharts, AG Grid, and kepler.gl / Leaflet maps, plus admin tools for KPIs, thresholds, users, and vendors using Redux and English/Spanish localization (react-intl).</li>
+    <li>Developed a mobile application using react-native-cli as a counterpart to the web application, tailoring existing NestJS services to cut unnecessary data loads.</li>
+    <li>Shipped through GitLab CI with SonarQube, SAST, and dependency scanning, deploying Docker images to client servers.</li>
+  </ul>
+  </div>
+
+  <div>
+  <p class="company">IBM</p>
+  <p class="role">Application Developer (Onsite) <span class="dates">| November 6, 2023 – November 12, 2024</span></p>
+  <p class="project">Project: Insurance Industry — UP Technohub, QC, PH</p>
+  <ul>
+    <li>Developed responsive, high-performance web and mobile applications using React and TypeScript, ensuring seamless functionality across a wide range of devices.</li>
+    <li>Refactored and modernized existing codebases, adopting contemporary frameworks and libraries such as Tailwind CSS, Shadcn UI, and Material UI to improve UI consistency, modularity, and maintainability.</li>
+    <li>Designed and maintained robust backend API services using both Node.js (NestJS) and Java (Spring Boot), integrating scalable RESTful APIs and managing large datasets across MySQL and MongoDB databases.</li>
+    <li>Migrated a full-stack application from a monolithic architecture to a microservices-based system to improve scalability, maintainability, and performance.</li>
+    <li>Transitioned from JSP and Java to a modern technology stack, including Java EE 17, Spring Boot 3, RESTful APIs, DB2, JPA, Hibernate, and SQL for a more efficient and modular backend.</li>
+    <li>Utilized Vue.js, Vite, and company-developed libraries to enhance the front-end experience, improve load times, and streamline development.</li>
+    <li>Leveraged Test Driven Development to ensure code quality and maintainability for every code release for both frontend and backend.</li>
+  </ul>
+  </div>
+
+  <div>
+  <p class="company">Accenture Inc.</p>
+  <p class="role">Associate Software Engineer (Hybrid) <span class="dates">| August 8, 2022 – October 27, 2023</span></p>
+  <p class="project">CG 2 — Mandaluyong City, PH</p>
+  <ul>
+    <li>Contributed to the development of Web Services using REST API with a strong focus on writing comprehensive and clean code using OOP.</li>
+    <li>Created frontend technologies using React JS and Redux as the state management tool and Git as the version control, integrating company API services into the web application.</li>
+    <li>Created and maintained test automation scripts using Cucumber and Java against company APIs, using tools such as Selenium, Postman, Chrome Driver, and Git as version control.</li>
+    <li>Underwent a 2-month full stack (Java and React) training during bootcamp.</li>
+  </ul>
+  </div>
+
+  <div class="skills">
+  <h2>Specialization &amp; Technology Stack</h2>
+  <p><b>Specialization:</b> Frontend Development, Backend Development, Reactive Microservices, Test Automation, Generative AI, AI-Assisted Development (Copilot, Claude Code, Cursor)</p>
+  <p><b>Frontend Stack:</b> React 19, Next.js (App Router), React Native, Vue.js, TypeScript, TanStack Query, Zustand, Redux, Pinia, Nx (monorepos), react-intl (i18n), Tailwind CSS, Material UI, Shadcn UI, ESLint, Prettier</p>
+  <p><b>Backend Stack:</b> Java 21, Spring Boot 4, Spring WebFlux, Project Reactor, Node.js, NestJS, TypeORM, REST, Swagger / OpenAPI, OAuth / JWT, Keycloak (SSO), JPA / Hibernate, Apache POI</p>
+  <p><b>Databases:</b> Oracle, MySQL, DB2, MongoDB / Mongoose, Couchbase, Hazelcast</p>
+  <p><b>Data Visualization &amp; Maps:</b> Highcharts, AG Grid, kepler.gl, Leaflet, MapTiler</p>
+  <p><b>Cloud &amp; Deployment:</b> Docker, OpenShift / Kubernetes, ArgoCD (GitOps), GitLab CI, AWS, Google Cloud Run, Firebase, Vercel</p>
+  <p><b>Testing Frameworks &amp; Technologies:</b> JUnit, Mockito, Reactor Test, WireMock, Jest, Playwright, Selenium, SonarQube</p>
+  <p><b>Observability:</b> Splunk RUM, OpenTelemetry, Micrometer, Log4j2</p>
+  </div>
+
+  <div>
+  <h2>Education</h2>
+  <p class="role" style="margin-top:0">Bulacan State University — Cum Laude <span class="dates">| August 2018 – July 2022</span></p>
+  <p class="project">Bachelor of Science in Information Technology — Malolos, Bulacan, PH</p>
+  <p class="role">Accenture Inc. — Project-based Internship <span class="dates">| March 2022 – June 2022</span></p>
+  <p class="project">Frontend Developer — Malolos, Bulacan, PH</p>
+  <ul>
+    <li>Developed a Web-Based Weekly Faculty Accomplishment Report Management System for our college using Python, Django RESTful API, React JS, Redux, HTML, CSS, JavaScript, and SQLite, using tools such as Postman and React Developer Tools.</li>
+  </ul>
+  </div>
+
+  <div>
+  <h2>Certifications &amp; Trainings</h2>
+  <ul>
+    <li>Microsoft Certified: Azure Fundamentals</li>
+    <li>React – The Complete Guide (incl. Hooks, React Router, Redux) – Udemy</li>
+    <li>Git Complete – The Definitive, Step-by-Step Guide to Git – Udemy</li>
+    <li>The Complete Web Developer in 2022: Zero to Mastery – Udemy</li>
+  </ul>
+  </div>
+</body>
+</html>

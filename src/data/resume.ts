@@ -80,14 +80,17 @@ const experience: Job[] = [
     company: "Freelance",
     role: "Software Engineer / Full Stack Developer",
     period: "Jan 2025 — Jul 2025",
-    project: "Data Engineering & IoT",
+    project: "Telecom & IoT monitoring platform",
     mode: "Fully remote",
-    stack: ["React Native", "React", "NestJS", "Zustand", "Redux", "MapTiler", "Highcharts"],
+    stack: ["React 18", "TypeScript", "NestJS", "MySQL", "TypeORM", "Redux", "Nx", "Highcharts", "AG Grid", "kepler.gl", "Keycloak", "React Native", "Docker"],
     highlights: [
-      "Built a react-native-cli mobile app as a counterpart to the client's web app, tailoring existing NestJS services to cut unnecessary data loads.",
-      "Shipped web features with React, Zustand, and Redux, integrating map APIs and third-party libraries into dynamic dashboards.",
-      "Led the move from outdated libraries to MapTiler and Highcharts, improving performance and maintainability of data visualization.",
-      "Implemented mathematical and visualization logic for real-time monitoring of IoT devices across regions.",
+      "Built features across both tiers of a telecom and IoT monitoring platform: a React 18 + TypeScript single-page app in an Nx monorepo and a NestJS REST API backed by MySQL.",
+      "Developed a NestJS backend-for-frontend that puts several monitoring APIs (IoT, metering, telecom, alarms, notifications) behind one authenticated API, with TypeORM entities, validated DTOs, Swagger docs, and scheduled jobs.",
+      "Secured the API with JWT, API-key, and role-based access guards, and worked on moving login to Keycloak SSO with RS256 tokens verified against the realm's public keys.",
+      "Built real-time monitoring dashboards and widgets with Highcharts, AG Grid, and kepler.gl / Leaflet maps, helping users read large datasets from devices and network KPIs across regions.",
+      "Delivered admin tools for KPIs, thresholds, users, and vendors using Redux, reusable Nx libraries, and English/Spanish localization with react-intl.",
+      "Built a react-native-cli mobile app as a counterpart to the web app, tailoring existing NestJS services to cut unnecessary data loads.",
+      "Shipped through GitLab CI with SonarQube, SAST, and dependency scanning, deploying Docker images to the client's servers.",
     ],
   },
   {
@@ -125,16 +128,17 @@ const experience: Job[] = [
 const skills: SkillGroup[] = [
   {
     group: "Frontend",
-    items: ["React 19", "Next.js (App Router)", "React Native", "Vue.js", "TypeScript", "TanStack Query", "Zustand", "Redux", "Pinia", "Tailwind CSS", "Material UI", "shadcn/ui"],
+    items: ["React 19", "Next.js (App Router)", "React Native", "Vue.js", "TypeScript", "TanStack Query", "Zustand", "Redux", "Pinia", "Tailwind CSS", "Material UI", "shadcn/ui", "Nx monorepos", "react-intl (i18n)"],
   },
   {
     group: "Backend",
-    items: ["Java 21", "Spring Boot 4", "Spring WebFlux", "Project Reactor", "Node.js", "NestJS", "REST", "OAuth / JWT", "JPA / Hibernate", "Apache POI"],
+    items: ["Java 21", "Spring Boot 4", "Spring WebFlux", "Project Reactor", "Node.js", "NestJS", "REST", "OAuth / JWT", "JPA / Hibernate", "Apache POI", "TypeORM", "Keycloak / SSO", "Swagger / OpenAPI"],
   },
   { group: "Data", items: ["Oracle", "MySQL", "DB2", "MongoDB", "Couchbase", "Hazelcast"] },
+  { group: "Data Viz & Maps", items: ["Highcharts", "AG Grid", "kepler.gl", "Leaflet", "MapTiler"] },
   {
     group: "Cloud & Delivery",
-    items: ["Docker", "OpenShift / Kubernetes", "ArgoCD (GitOps)", "AWS", "Google Cloud Run", "Firebase", "Vercel"],
+    items: ["Docker", "OpenShift / Kubernetes", "ArgoCD (GitOps)", "AWS", "Google Cloud Run", "Firebase", "Vercel", "GitLab CI"],
   },
   {
     group: "Testing",
