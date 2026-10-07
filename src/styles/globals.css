@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: 245 243 238;
+    --surface: 255 255 255;
+    --ink: 20 24 31;
+    --muted: 91 98 112;
+    --line: 223 219 210;
+    --accent: 12 110 107;
+    --signal: 214 79 46;
+    color-scheme: light;
+  }
+
+  .dark {
+    --bg: 10 14 19;
+    --surface: 17 23 31;
+    --ink: 232 234 237;
+    --muted: 142 151 164;
+    --line: 34 43 54;
+    --accent: 72 200 186;
+    --signal: 255 128 94;
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-bg font-sans text-ink antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: rgb(var(--accent) / 0.25);
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--accent));
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.14em] text-muted;
+  }
+
+  .section {
+    @apply border-t border-line py-16 sm:py-24;
+  }
+
+  .section-head {
+    @apply mb-10 grid gap-3 sm:grid-cols-[160px_1fr] sm:gap-10;
+  }
+
+  .h2 {
+    @apply text-2xl font-semibold leading-tight tracking-tight sm:text-3xl;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-md border border-line px-2.5 py-1 text-[13px] text-ink/80;
+  }
+
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition;
+  }
+
+  .btn-primary {
+    @apply btn bg-ink text-bg hover:opacity-80;
+  }
+
+  .btn-ghost {
+    @apply btn border border-line text-ink hover:border-ink;
+  }
+
+  .card {
+    @apply rounded-xl border border-line bg-surface;
+  }
+}
+
+/* Scroll reveal: elements start hidden only when JS is running and motion is allowed,
+   so content is never stuck invisible. RevealObserver sets [data-shown]. */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-reveal] {
+    transition:
+      opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+      transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .js [data-reveal]:not([data-shown]) {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  .js [data-reveal="line"] {
+    transform-origin: top;
+    transition-duration: 1.2s;
+  }
+
+  .js [data-reveal="line"]:not([data-shown]) {
+    opacity: 1;
+    transform: scaleY(0);
+  }
+
+  .js [data-reveal="slide"]:not([data-shown]) {
+    transform: translateX(-28px);
+  }
+
+  .js [data-reveal="pop"] {
+    transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition-duration: 0.5s;
+  }
+
+  .js [data-reveal="pop"]:not([data-shown]) {
+    transform: scale(0.4);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
