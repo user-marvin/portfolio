@@ -6,24 +6,29 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint .",
+    "sanity:seed": "sanity exec scripts/seed-sanity.ts --with-user-token",
+    "sanity:login": "sanity login"
   },
   "dependencies": {
-    "@heroicons/react": "^2.2.0",
+    "@sanity/icons": "^5.2.3",
+    "@sanity/vision": "^6.18.0",
     "lucide-react": "^0.475.0",
-    "next": "15.1.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "styled-jsx": "^5.1.6"
+    "next": "^16.4.0",
+    "next-sanity": "^13.3.4",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "sanity": "^6.18.0",
+    "styled-components": "^6.5.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@types/node": "^20",
-    "@types/react": "^19.0.2",
-    "@types/react-dom": "^19",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
     "autoprefixer": "^10.4.20",
-    "eslint": "^9",
-    "eslint-config-next": "15.1.0",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.4.0",
     "postcss": "^8.5.1",
     "tailwindcss": "^3.4.17",
     "typescript": "^5"
