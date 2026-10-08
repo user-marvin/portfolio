@@ -15,7 +15,11 @@ export default function About({ profile }: { profile: Profile }) {
         </div>
 
         {profile.principles.length > 0 && (
-          <ul className="grid gap-8 border-t border-line pt-8 sm:ml-[200px] md:grid-cols-3">
+          <ul
+            className={`grid gap-8 border-t border-line pt-8 sm:ml-[200px] ${
+              profile.principles.length === 4 ? "md:grid-cols-2 lg:grid-cols-4" : "md:grid-cols-3"
+            }`}
+          >
             {profile.principles.map((p, i) => (
               <li key={p.title} data-reveal style={{ "--reveal-delay": `${i * 80}ms` } as CSSProperties}>
                 <h3 className="font-medium">{p.title}</h3>
