@@ -6,10 +6,10 @@ import type { EducationEntry, FeaturedWork, Job, Profile, Project, SiteContent, 
 const profile: Profile = {
   name: "Marvin B. Villamar",
   shortName: "Marvin Villamar",
-  role: "Full Stack Software Engineer",
+  role: "AI Engineer & Full Stack Developer",
   location: "Quezon City, Metro Manila, PH",
   headline:
-    "I build production web, mobile, and reactive backend systems — from API design and data modeling through UI, tests, and delivery.",
+    "I build production web, mobile, and reactive backend systems — and use generative AI and AI-assisted development to design, build, and ship them faster.",
   currently: "SmartFleet for Royal Caribbean Group",
   stats: [
     { value: "4+", label: "years shipping production software" },
@@ -18,13 +18,18 @@ const profile: Profile = {
     { value: "3", label: "industries: cruise, insurance, IoT" },
   ],
   summary: [
-    "Full stack software engineer with 4+ years of experience across cruise hospitality, insurance, and IoT. Right now I build and maintain both tiers of a crew-facing guest experience platform that runs on every ship in Royal Caribbean Group's 71-vessel fleet.",
+    "AI engineer and full stack developer with 4+ years of experience across cruise hospitality, insurance, telecom, and IoT. Right now I build and maintain both tiers of a crew-facing guest experience platform that runs on every ship in Royal Caribbean Group's 71-vessel fleet.",
     "I'm comfortable owning a feature end to end, and I'm known for modernizing legacy stacks — monolith to microservices, blocking to reactive, and outdated libraries to maintainable ones.",
+    "I work hands-on with generative AI and AI-assisted development, using tools like Claude Code, GitHub Copilot, and Cursor across design, coding, testing, and code review.",
   ],
   principles: [
     { title: "End-to-end ownership", body: "API design and data modeling through UI, test coverage, and Docker/ArgoCD delivery." },
     { title: "Modernizing legacy", body: "Monolith to microservices, blocking to reactive, outdated libraries to maintainable ones." },
     { title: "Resilient by default", body: "Retries, timeouts, offline tolerance, and coverage gates on every release." },
+    {
+      title: "AI-assisted engineering",
+      body: "Generative AI and tools like Claude Code, Copilot, and Cursor in everyday design, coding, testing, and review.",
+    },
   ],
   email: "villamar.marvin.b.8138@gmail.com",
   github: "https://github.com/user-marvin",
@@ -146,8 +151,8 @@ const skills: SkillGroup[] = [
   },
   { group: "Observability", items: ["Splunk RUM", "OpenTelemetry", "Micrometer", "Log4j2"] },
   {
-    group: "AI-Assisted Dev",
-    items: ["Generative AI", "Claude Code", "GitHub Copilot", "Cursor"],
+    group: "AI Engineering",
+    items: ["Generative AI", "AI-Assisted Development", "Claude Code", "GitHub Copilot", "Cursor"],
   },
 ];
 
