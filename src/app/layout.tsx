@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { getContent } from "@/sanity/content";
 import RevealObserver from "@/components/RevealObserver";
 import "@/styles/globals.css";
@@ -16,13 +18,23 @@ const mono = JetBrains_Mono({
   display: "swap",
 });
 
+// Absolute base for the preview card and other metadata URLs. Set NEXT_PUBLIC_SITE_URL when using a
+// custom domain; otherwise Vercel's production URL (or localhost in development) is used.
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3000");
+
 export async function generateMetadata(): Promise<Metadata> {
   const { profile } = await getContent();
   const title = `${profile.shortName} — ${profile.role}`;
   return {
+    metadataBase: new URL(siteUrl),
     title,
     description: profile.headline,
-    openGraph: { title, description: profile.headline, type: "website" },
+    openGraph: { title, description: profile.headline, type: "website", url: "/", siteName: profile.shortName },
+    twitter: { card: "summary_large_image", title, description: profile.headline },
   };
 }
 
@@ -49,6 +61,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         {children}
         <RevealObserver />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
