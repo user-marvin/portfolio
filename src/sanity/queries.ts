@@ -2,7 +2,7 @@ import { defineQuery } from "next-sanity";
 
 export const siteContentQuery = defineQuery(`{
   "profile": *[_id == "profile"][0]{
-    name, shortName, role, location, headline, currently, email, github, contactBlurb,
+    name, shortName, role, location, headline, currently, email, github, contactBlurb, availability,
     "stats": coalesce(stats[]{value, label}, []),
     "summary": coalesce(summary, []),
     "principles": coalesce(principles[]{title, body}, []),
