@@ -8,6 +8,7 @@ export type Profile = {
   location?: string;
   headline: string;
   currently?: string;
+  availability?: string;
   stats: Stat[];
   summary: string[];
   principles: TitledText[];

@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import type { Job } from "@/sanity/types";
+import { emphasizeNumbers } from "@/lib/emphasize-numbers";
 import TimelineProgress from "./TimelineProgress";
 
 const delay = (ms: number) => ({ "--reveal-delay": `${ms}ms` }) as CSSProperties;
@@ -56,7 +57,7 @@ function JobEntry({ job, current }: { job: Job; current: boolean }) {
                 className="grid grid-cols-[18px_1fr] gap-2 text-[15px] leading-relaxed text-ink/90"
               >
                 <span aria-hidden className="mt-[0.7em] h-px w-3 bg-muted transition-all group-hover:w-4 group-hover:bg-accent" />
-                <span>{h}</span>
+                <span>{emphasizeNumbers(h)}</span>
               </li>
             ))}
           </ul>

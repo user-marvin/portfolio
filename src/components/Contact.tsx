@@ -19,10 +19,16 @@ export default function Contact({ profile }: { profile: Profile }) {
         <div className="section-head" data-reveal>
           <p className="eyebrow pt-1.5">Contact</p>
           <div>
-            <h2 className="h2">Let&apos;s work together.</h2>
-            <p className="mt-4 max-w-xl text-lg text-muted">
-              {profile.contactBlurb}
-            </p>
+            {profile.availability && (
+              <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-line px-3 py-1 text-xs font-medium">
+                <span className="h-2 w-2 rounded-full bg-emerald-500" />
+                {profile.availability}
+              </p>
+            )}
+            <h2 className="text-3xl font-semibold leading-tight tracking-tight sm:text-5xl">
+              Let&apos;s build something <span className="text-accent">together.</span>
+            </h2>
+            <p className="mt-5 max-w-xl text-lg text-muted">{profile.contactBlurb}</p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <a href={`mailto:${profile.email}`} className="btn-primary">

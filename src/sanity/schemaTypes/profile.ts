@@ -25,6 +25,13 @@ export const profile = defineType({
       group: "hero",
     }),
     defineField({
+      name: "availability",
+      title: "Availability badge",
+      description: "Shown above the contact heading, e.g. “Open to new opportunities”. Leave empty to hide it.",
+      type: "string",
+      group: "contact",
+    }),
+    defineField({
       name: "stats",
       title: "Headline numbers",
       type: "array",

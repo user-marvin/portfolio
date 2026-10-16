@@ -11,6 +11,7 @@ const profile: Profile = {
   headline:
     "I build production web, mobile, and reactive backend systems — and use generative AI and AI-assisted development to design, build, and ship them faster.",
   currently: "SmartFleet for Royal Caribbean Group",
+  availability: "Open to new opportunities",
   stats: [
     { value: "4+", label: "years shipping production software" },
     { value: "71", label: "ships running code I maintain" },
