@@ -1,96 +1,113 @@
 import Image from "next/image";
-import { ArrowUpRight, Github } from "lucide-react";
-import type { CSSProperties } from "react";
+import type { ComponentType, CSSProperties } from "react";
 import type { SiteContent } from "@/sanity/types";
+import SectionHeading from "./SectionHeading";
+import TrackJobDemo from "./TrackJobDemo";
 
-export default function Projects({ projects, github }: { projects: SiteContent["projects"]; github?: string }) {
-  const { items, showMoreCard } = projects;
-  if (items.length === 0 && !showMoreCard) return null;
+// Projects with a live demo, by title (lower case): the demo replaces the screenshot and the card spans the row.
+const DEMOS: Record<string, ComponentType> = { trackjob: TrackJobDemo };
+
+/** Project cards: screenshot when there is one, year, description, stack and links. */
+export default function Projects({
+  projects,
+  github,
+  number,
+}: {
+  projects: SiteContent["projects"];
+  github?: string;
+  number: string;
+}) {
+  const showAllLink = projects.showMoreCard && github;
 
   return (
-    <section id="projects" className="section">
-      <div className="container">
-        <div className="section-head" data-reveal>
-          <p className="eyebrow pt-1.5">Projects</p>
-          <h2 className="h2 max-w-2xl">Selected projects</h2>
-        </div>
-
-        <ul className="grid gap-4 sm:ml-[200px] md:grid-cols-2">
-          {items.map((p, i) => (
+    <section
+      id="projects"
+      aria-labelledby="projects-title"
+      className="grid scroll-mt-6 gap-[22px]"
+    >
+      <SectionHeading
+        id="projects-title"
+        number={number}
+        title="projects"
+        link={
+          showAllLink
+            ? { href: github, label: "All projects", external: true }
+            : undefined
+        }
+      />
+      <ul className="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-3">
+        {projects.items.map((project, index) => {
+          const Demo = DEMOS[project.title.trim().toLowerCase()];
+          return (
             <li
-              key={p.title}
+              key={project.title}
               data-reveal
-              style={{ "--reveal-delay": `${(i % 2) * 80}ms` } as CSSProperties}
-              className="card flex flex-col overflow-hidden transition-colors hover:border-ink/40"
+              style={
+                { "--reveal-delay": `${(index % 2) * 80}ms` } as CSSProperties
+              }
+              className={`card flex flex-col overflow-hidden ${Demo ? "col-span-full" : ""}`}
             >
-              {p.image && (
-                <Image
-                  src={`${p.image.url}?w=1200&auto=format`}
-                  alt={p.image.alt ?? p.title}
-                  width={p.image.width ?? 1200}
-                  height={p.image.height ?? 675}
-                  sizes="(min-width: 768px) 400px, 100vw"
-                  className="aspect-[16/9] w-full border-b border-line object-cover"
-                />
-              )}
-              <div className="flex flex-1 flex-col p-6">
-                <div className="flex items-baseline justify-between gap-4">
-                  <h3 className="font-medium">{p.title}</h3>
-                  {p.year && <span className="shrink-0 font-mono text-xs text-muted">{p.year}</span>}
+              {Demo ? (
+                <div className="border-b border-edge bg-bg p-3 sm:p-5">
+                  <Demo />
                 </div>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">{p.description}</p>
-                {p.stack.length > 0 && (
-                  <ul className="mt-5 flex flex-wrap gap-1.5">
-                    {p.stack.map((s) => (
-                      <li
-                        key={s}
-                        className="font-mono text-[11.5px] text-muted after:ml-1.5 after:content-['·'] last:after:content-none"
-                      >
-                        {s}
-                      </li>
-                    ))}
-                  </ul>
+              ) : (
+                project.image && (
+                  <Image
+                    src={`${project.image.url}?w=1200&auto=format`}
+                    alt={project.image.alt ?? project.title}
+                    width={project.image.width ?? 1200}
+                    height={project.image.height ?? 675}
+                    sizes="(min-width: 1024px) 360px, 100vw"
+                    className="aspect-[16/9] w-full border-b border-edge object-cover"
+                  />
+                )
+              )}
+              <div className="flex flex-1 flex-col gap-2.5 p-5">
+                <div className="flex justify-between gap-2 font-mono text-[11px] text-muted">
+                  <span>{project.year}</span>
+                  {project.links[0] && (
+                    <a
+                      href={project.links[0].href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="uppercase hover:text-ink"
+                    >
+                      {project.links[0].label} ↗
+                    </a>
+                  )}
+                </div>
+                <h3 className="font-mono text-base font-medium">
+                  {project.title}
+                </h3>
+                <p className="flex-1 text-sm text-soft">
+                  {project.description}
+                </p>
+                {project.stack.length > 0 && (
+                  <p className="font-mono text-[11px] lowercase text-muted">
+                    {project.stack.join(" · ")}
+                  </p>
                 )}
-                {p.links.length > 0 && (
-                  <div className="mt-5 flex gap-4 border-t border-line pt-4">
-                    {p.links.map((l) => (
+                {project.links.length > 1 && (
+                  <div className="flex flex-wrap gap-4 border-t border-line pt-3 font-mono text-xs">
+                    {project.links.slice(1).map((link) => (
                       <a
-                        key={l.href}
-                        href={l.href}
+                        key={link.href}
+                        href={link.href}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-1 text-sm hover:text-accent"
+                        className="text-soft hover:text-ink"
                       >
-                        {l.label} <ArrowUpRight size={14} />
+                        {link.label} ↗
                       </a>
                     ))}
                   </div>
                 )}
               </div>
             </li>
-          ))}
-
-          {showMoreCard && (
-            <li data-reveal className="flex flex-col justify-center rounded-xl border border-dashed border-line p-6">
-              <p className="font-medium">More on the way</p>
-              <p className="mt-2 text-sm leading-relaxed text-muted">
-                New projects and write-ups are being added.
-                {github && " In the meantime, see what I'm working on in public."}
-              </p>
-              {github && (
-                <a
-                  href={github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-4 inline-flex items-center gap-2 text-sm hover:text-accent"
-                >
-                  <Github size={15} /> {github.replace(/^https?:\/\/(www\.)?/, "")}
-                </a>
-              )}
-            </li>
-          )}
-        </ul>
-      </div>
+          );
+        })}
+      </ul>
     </section>
   );
 }

@@ -11,13 +11,19 @@ export default function CopyEmail({ email }: { email: string }) {
       await navigator.clipboard.writeText(email);
       setCopied(true);
       setTimeout(() => setCopied(false), 1800);
-    } catch {}
+    } catch {
+      // Clipboard blocked: the address next to the button can still be selected.
+    }
   };
 
   return (
-    <button onClick={copy} className="btn-ghost font-mono !text-[13px]">
-      {copied ? <Check size={14} className="text-accent" /> : <Copy size={14} />}
-      <span className="max-w-[60vw] truncate">{copied ? "Copied to clipboard" : email}</span>
+    <button
+      type="button"
+      onClick={copy}
+      className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-edge-strong bg-surface px-4 text-[13px] transition hover:border-ink"
+    >
+      {copied ? <Check size={14} aria-hidden /> : <Copy size={14} aria-hidden />}
+      {copied ? "Copied" : "Copy email"}
     </button>
   );
 }

@@ -1,67 +1,23 @@
-import { ArrowUpRight, FileText, Github } from "lucide-react";
 import type { Profile } from "@/sanity/types";
 import CopyEmail from "./CopyEmail";
+import SectionHeading from "./SectionHeading";
 
-export default function Contact({ profile }: { profile: Profile }) {
-  const links = [
-    profile.github && {
-      href: profile.github,
-      label: "GitHub",
-      sub: profile.github.replace(/^https?:\/\/(www\.)?/, ""),
-      icon: Github,
-    },
-    profile.resumeUrl && { href: profile.resumeUrl, label: "Résumé", sub: "Download PDF", icon: FileText },
-  ].filter((l) => !!l);
-
+export default function Contact({ profile, number }: { profile: Profile; number: string }) {
   return (
-    <section id="contact" className="section pb-10">
-      <div className="container">
-        <div className="section-head" data-reveal>
-          <p className="eyebrow pt-1.5">Contact</p>
-          <div>
-            {profile.availability && (
-              <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-line px-3 py-1 text-xs font-medium">
-                <span className="h-2 w-2 rounded-full bg-emerald-500" />
-                {profile.availability}
-              </p>
-            )}
-            <h2 className="text-3xl font-semibold leading-tight tracking-tight sm:text-5xl">
-              Let&apos;s build something <span className="text-accent">together.</span>
-            </h2>
-            <p className="mt-5 max-w-xl text-lg text-muted">{profile.contactBlurb}</p>
-
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <a href={`mailto:${profile.email}`} className="btn-primary">
-                Email me <ArrowUpRight size={16} />
-              </a>
-              <CopyEmail email={profile.email} />
-            </div>
-          </div>
-        </div>
-
-        {links.length > 0 && (
-        <ul data-reveal className="grid gap-px overflow-hidden rounded-xl border border-line bg-line sm:ml-[200px] sm:grid-cols-2">
-          {links.map(({ href, label, sub, icon: Icon }) => (
-            <li key={label}>
-              <a href={href} target="_blank" rel="noreferrer" className="group flex items-center justify-between bg-surface p-5 transition hover:bg-bg">
-                <span className="flex items-center gap-4">
-                  <Icon size={20} className="text-muted transition group-hover:text-accent" />
-                  <span>
-                    <span className="block font-medium">{label}</span>
-                    <span className="block text-sm text-muted">{sub}</span>
-                  </span>
-                </span>
-                <ArrowUpRight size={18} className="text-muted transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-ink" />
-              </a>
-            </li>
-          ))}
-        </ul>
-        )}
-
-        <footer className="mt-20 flex flex-col justify-between gap-3 border-t border-line pt-6 text-sm text-muted sm:flex-row">
-          <span>© {new Date().getFullYear()} {profile.name}</span>
-        </footer>
+    <section id="contact" aria-labelledby="contact-title" className="grid scroll-mt-6 gap-4 border-t border-line pt-8">
+      <SectionHeading id="contact-title" number={number} title="contact" />
+      <p className="font-mono text-[clamp(20px,3vw,28px)] leading-snug">Building something? Let&apos;s talk.</p>
+      {profile.contactBlurb && <p className="text-soft">{profile.contactBlurb}</p>}
+      <div className="flex flex-wrap items-center gap-2.5">
+        <a href={`mailto:${profile.email}`} className="select-all font-mono text-ink">
+          {profile.email}
+        </a>
+        <CopyEmail email={profile.email} />
       </div>
+      <footer className="mt-12 flex flex-wrap justify-between gap-2 border-t border-line pt-5 font-mono text-xs text-muted">
+        <span>© {new Date().getFullYear()} {profile.name}</span>
+        <span>{profile.location}</span>
+      </footer>
     </section>
   );
 }
