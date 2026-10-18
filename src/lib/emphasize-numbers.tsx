@@ -6,17 +6,17 @@ const IMPACT = /\b\d[\d,]*(?:\+|%|-[a-z]+|(?= [a-z])|(?= [A-Z][A-Za-z]* [a-z]))/
 
 export function emphasizeNumbers(text: string): ReactNode[] {
   const parts: ReactNode[] = [];
-  let last = 0;
-  for (const m of text.matchAll(IMPACT)) {
-    const i = m.index ?? 0;
-    if (i > last) parts.push(text.slice(last, i));
+  let lastEnd = 0;
+  for (const match of text.matchAll(IMPACT)) {
+    const start = match.index ?? 0;
+    if (start > lastEnd) parts.push(text.slice(lastEnd, start));
     parts.push(
-      <strong key={i} className="font-semibold text-accent">
-        {m[0]}
+      <strong key={start} className="font-semibold text-ink">
+        {match[0]}
       </strong>,
     );
-    last = i + m[0].length;
+    lastEnd = start + match[0].length;
   }
-  if (last < text.length) parts.push(text.slice(last));
+  if (lastEnd < text.length) parts.push(text.slice(lastEnd));
   return parts;
 }

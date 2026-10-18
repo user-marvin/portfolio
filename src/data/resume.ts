@@ -16,10 +16,10 @@ const profile: Profile = {
     { value: "4+", label: "years shipping production software" },
     { value: "71", label: "ships running code I maintain" },
     { value: "10+", label: "enterprise systems behind one reactive API" },
-    { value: "3", label: "industries: cruise, insurance, IoT" },
+    { value: "4", label: "industries: cruise, banking, insurance, IoT" },
   ],
   summary: [
-    "AI engineer and full stack developer with 4+ years of experience across cruise hospitality, insurance, telecom, and IoT. Right now I build and maintain both tiers of a crew-facing guest experience platform that runs on every ship in Royal Caribbean Group's 71-vessel fleet.",
+    "AI engineer and full stack developer with 4+ years of experience across cruise hospitality, banking, insurance, telecom, and IoT. Right now I build and maintain both tiers of a crew-facing guest experience platform that runs on every ship in Royal Caribbean Group's 71-vessel fleet.",
     "I'm comfortable owning a feature end to end, and I'm known for modernizing legacy stacks — monolith to microservices, blocking to reactive, and outdated libraries to maintainable ones.",
     "I work hands-on with generative AI and AI-assisted development, using tools like Claude Code, GitHub Copilot, and Cursor across design, coding, testing, and code review.",
   ],
@@ -119,7 +119,7 @@ const experience: Job[] = [
     company: "Accenture",
     role: "Associate Software Engineer",
     period: "Aug 2022 — Oct 2023",
-    project: "CG 2 · Mandaluyong City",
+    project: "Banking Industry · CG 2, Mandaluyong City",
     mode: "Hybrid",
     stack: ["React", "Redux", "Java", "REST", "Cucumber", "Selenium"],
     highlights: [
